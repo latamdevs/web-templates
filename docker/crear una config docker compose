@@ -1,0 +1,6 @@
+para el docker voy a necesitar
+
+- nvm en version 5.10, para compilar react
+- npm i babel-loader babel-core --save-dev
+
+

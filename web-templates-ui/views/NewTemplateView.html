@@ -1,0 +1,47 @@
+<div class="col-md-12">
+  <div class="starter-template">
+    <h1>Web Templates</h1>
+    <p class="lead">
+      Para generar una variable encierrala ${asi}
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div ckeditor="ckEditorOptions"
+        ng-model="templateContent"
+        ready="ckEditorReady()"></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <label for="templateName">Nombre Plantilla</label>
+      <input type="text"
+          class="form-control"
+          id="templateName"
+          ng-model="templateName"
+          placeholder="Nombre de la plantilla" />
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-offset-4 col-md-1">
+    <button type="button"
+        data-ng-click="save(templateName, templateContent)"
+        class="btn btn-primary">Guardar
+    </button>
+  </div>
+  <div class="col-md-1">
+    <button type="button"
+        data-ng-click="onEvaluate()"
+        class="btn btn-info">Evaluar
+    </button>
+  </div>
+  <div class="col-md-1">
+    <button type="button"
+        data-ng-click="remove(templateName)"
+        class="btn btn-danger">Eliminar
+    </button>
+  </div>
+</div>
