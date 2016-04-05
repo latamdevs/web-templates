@@ -1,5 +1,4 @@
-.idea/
-build.gradle
 build/
-node_modules/
+.idea/
+.gradle/
 
