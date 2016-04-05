@@ -51,12 +51,14 @@ public final class SparkWebJars implements Filter {
         }
     }
 
+    // TODO: replace this thing with a library!!
     private String getMimeType(final String filename) {
         final String fileExtension = getFileExtension(filename);
 
         switch (fileExtension) {
             case "js": return MediaType.JSON_UTF_8.toString();
             case "css": return MediaType.CSS_UTF_8.toString();
+            case "svg": return MediaType.SVG_UTF_8.toString();
         }
 
         return "application/octet-stream";
