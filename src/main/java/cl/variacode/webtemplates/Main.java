@@ -57,9 +57,12 @@ public class Main {
     private static Template parseTemplate(final String rawTemplate, final Configuration configuration) throws IOException {
         // this fixes list
         final String template = rawTemplate
-                .replaceAll("&lt;#list (.*?)&gt;", "<#list $1>")
                 .replaceAll("&lt;#else&gt;", "<#else>")
+                .replaceAll("&lt;#sep&gt;", "<#sep>")
+                .replaceAll("&lt;#/sep&gt;", "</#sep>")
+                .replaceAll("&lt;#list (.*?)&gt;", "<#list $1>")
                 .replaceAll("&lt;#/list&gt;", "</#list>");
+
 
         return new Template("name", new StringReader(template), configuration);
     }
