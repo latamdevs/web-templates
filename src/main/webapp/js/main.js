@@ -85,7 +85,7 @@ $(function () {
   var $output = $('#output');
   
   $eval.click(function() {
-    var url = "/api/eval";
+    var url = "api/eval";
 
     var data = {
       template: JSON.stringify(ckEditor.getData()),

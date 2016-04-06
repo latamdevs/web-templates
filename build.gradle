@@ -1,11 +1,9 @@
 group 'cl.variacode'
-version '0.0.1'
+version '0.0.2'
 
+apply plugin: 'jetty'
 apply plugin: 'java'
-apply plugin: 'application'
-
-sourceCompatibility = 1.8
-mainClassName = "cl.variacode.webtemplates.Main"
+apply plugin: 'war'
 
 repositories {
     mavenCentral()
@@ -17,14 +15,13 @@ dependencies {
   compile "org.webjars:ckeditor:4.5.7"
   compile 'org.webjars.bower:jsoneditor:5.0.1'
 
+  providedCompile 'javax.servlet:servlet-api:2.4'
+  compile 'org.webjars:webjars-servlet-2.x:1.5'
+
   compile 'com.google.code.gson:gson:2.6.2'
-  compile 'com.google.guava:guava:19.0'
-  compile 'com.sparkjava:spark-core:2.3'
   compile 'org.freemarker:freemarker:2.3.23'
 
   testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
-
-
-
+httpPort = 8080

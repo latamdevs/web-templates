@@ -1,6 +1,8 @@
-# Esto es llegar y usar
+# Para usar standalone
 
-    gradle run
+    gradle jettyRun
     
-va a dejar corriendo el servidor en el puerto 3456, 
-luego tienes que visitar la pagina principal [aquí](http://localhost:4567/index.html)
+    
+# Para crear un war a partir del proyecto
+
+    gradle war

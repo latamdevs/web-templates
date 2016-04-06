@@ -1,0 +1,25 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+
+    <servlet>
+        <servlet-name>WebjarsServlet</servlet-name>
+        <servlet-class>org.webjars.servlet.WebjarsServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>EvalServlet</servlet-name>
+        <servlet-class>cl.variacode.webtemplates.EvalServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>WebjarsServlet</servlet-name>
+        <url-pattern>/webjars/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EvalServlet</servlet-name>
+        <url-pattern>/api/eval</url-pattern>
+    </servlet-mapping>
+</web-app>
