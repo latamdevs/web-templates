@@ -1,9 +1,8 @@
 package cl.variacode.webtemplates;
 
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.StringReader;
-import java.io.Writer;
+import java.io.StringWriter;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -49,7 +48,7 @@ public final class EvalServlet extends HttpServlet {
 
     @Override
     public void doPost(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
-        final String rawTemplate = getParameter(request, "template", "");
+        final String rawTemplate = gson.fromJson(getParameter(request, "template", ""), String.class);
         final String context = getParameter(request, "context", "");
 
         if (isEmpty(rawTemplate)) {
@@ -60,10 +59,15 @@ public final class EvalServlet extends HttpServlet {
         final Template template = parseTemplate(rawTemplate, configuration);
         final Map<String, Object> model = gson.fromJson(context, Map.class);
 
-        final Writer out = new OutputStreamWriter(response.getOutputStream());
 
         try {
+            final StringWriter out = new StringWriter();
             template.process(model, out);
+
+            final String output = gson.toJson(out.toString()).replace("\n", "");
+
+            response.getWriter().write(output);
+
         } catch (final TemplateException e) {
             logger.log(Level.SEVERE, "error while processing template", e);
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
